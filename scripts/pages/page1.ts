@@ -14,7 +14,6 @@ export default class Page1 extends Page1Design {
     label1: Label;
     label2: Label;
     myImageView: ImageView;
-    myImage: Image;
     router: any;
     constructor() {
         super();
@@ -30,6 +29,8 @@ export default class Page1 extends Page1Design {
             console.log('api response ->', response);
             if (response) {
                 console.log('loc weather response', response);
+                this.label1.text = response.name
+                this.label2.text = response.main.temp
                 this.labelCity.text = response.name;
                 this.labelTemp.text = response.main.temp;
                 this.labelFeelsLike.text = response.main.feels_like;
@@ -81,11 +82,11 @@ export default class Page1 extends Page1Design {
 function onShow(this: Page1, superOnShow: () => void) {
     superOnShow();
     this.headerBar.titleLayout.applyLayout();
-
+  
     Location.android.checkSettings({
         onSuccess: () => {
             console.log('Location.checkSettings onSuccess');
-            PermissionUtil.getPermission(Application.Android.Permissions.ACCESS_FINE_LOCATION, 'Please go to the settings and grant permission')
+            PermissionUtil.getPermission({androidPermission: Application.Android.Permissions.ACCESS_FINE_LOCATION, permissionText: 'Please go to the settings and grant permission' })
                 .then(() => {
                     this.getCurrentLocation();
                 })
@@ -117,20 +118,25 @@ function onShow(this: Page1, superOnShow: () => void) {
  */
 function onLoad(this: Page1, superOnLoad: () => void) {
     superOnLoad();
+    //@ts-ignore 
     this.myImage = Image.createFromFile("assets://weather/sunny.png")
     this.myImageView = new ImageView({
         image: this.myImage
-    });
+    }) as StyleContextComponentType<ImageView>;;
     this.addChild(this.myImageView, "myImageView", ".sf-imageView", {
         left: 0,
         width: 300,
         height: 400
     });
     this.label1 = new Label({
-        text: "1"
+        width: 150,
+        text: "Label1",
     })
     this.label2 = new Label({
-        text: "2"
+        width: 120,
+        text: "Label2",
+
+
     })
     this.flexLayout1.addChild(this.label1, 'label1', ".sf-label")
     this.flexLayout1.addChild(this.label2, 'label2', ".sf-label")

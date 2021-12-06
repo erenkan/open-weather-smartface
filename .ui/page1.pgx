@@ -14,7 +14,8 @@
 					"96d0-9fa0-01df-6cb0",
 					"be1a-41f1-58ab-13a6",
 					"9e49-7873-afba-472b",
-					"8ee5-1988-9b0d-2783"
+					"8ee5-1988-9b0d-2783",
+					"da5b-3ce0-dbed-92d2"
 				],
 				"isRemovable": true,
 				"name": "page1",
@@ -81,7 +82,10 @@
 			},
 			"type": "ActivityIndicator",
 			"userProps": {
-				"flexProps": {},
+				"flexProps": {
+					"positionType": "RELATIVE",
+					"alignSelf": "CENTER"
+				},
 				"testId": "wZgOt8P8-",
 				"usePageVariable": true
 			}
@@ -111,7 +115,7 @@
 					"family": "SFProText",
 					"style": "Medium"
 				},
-				"height": 64,
+				"height": 50,
 				"ios": {
 					"shadowOpacity": 0
 				},
@@ -122,7 +126,7 @@
 				"textAlignment": "MIDCENTER",
 				"usePageVariable": true,
 				"visible": true,
-				"width": 115
+				"width": 150
 			}
 		},
 		{
@@ -143,7 +147,7 @@
 				"flexProps": {
 					"marginLeft": 20,
 					"marginRight": 20,
-					"alignSelf": "STRETCH"
+					"alignSelf": "CENTER"
 				},
 				"font": {
 					"size": 32,
@@ -152,7 +156,7 @@
 					"family": "SFProText",
 					"style": "Regular"
 				},
-				"height": null,
+				"height": 44,
 				"marginBottom": null,
 				"marginTop": null,
 				"multiline": true,
@@ -161,7 +165,7 @@
 				"textAlignment": "MIDCENTER",
 				"textColor": "rgba( 2, 2, 2, 1 )",
 				"usePageVariable": true,
-				"width": null
+				"width": 152
 			}
 		},
 		{
@@ -176,9 +180,15 @@
 			},
 			"type": "Label",
 			"userProps": {
+				"flexProps": {
+					"alignSelf": "CENTER"
+				},
+				"height": 38,
 				"testId": "9i94XlSnL",
 				"text": "labelFeelsLike",
-				"usePageVariable": true
+				"textAlignment": "MIDCENTER",
+				"usePageVariable": true,
+				"width": "125"
 			}
 		},
 		{
@@ -247,6 +257,25 @@
 				"testId": "MKx9a82Lv",
 				"usePageVariable": true,
 				"width": "71.13"
+			}
+		},
+		{
+			"className": ".sf-flexLayout",
+			"id": "da5b-3ce0-dbed-92d2",
+			"props": {
+				"children": [],
+				"name": "flexLayout1",
+				"parent": "e891b86d",
+				"usePageVariable": true
+			},
+			"type": "FlexLayout",
+			"userProps": {
+				"flexProps": {
+					"flexDirection": "ROW"
+				},
+				"height": 150,
+				"testId": "KMIa5efGC",
+				"usePageVariable": true
 			}
 		}
 	]

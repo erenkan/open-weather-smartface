@@ -9,9 +9,10 @@ import { getWeatherByCityName, getWeatherByLocation } from '../api/weatherReposi
 import { getLocation } from '@smartface/extension-utils/lib/location';
 import Image from '@smartface/native/ui/image';
 import ImageView from '@smartface/native/ui/imageview';
-
+import Label from '@smartface/native/ui/label';
 export default class Page1 extends Page1Design {
-
+    label1: Label;
+    label2: Label;
     myImageView: ImageView;
     myImage: Image;
     router: any;
@@ -125,6 +126,15 @@ function onLoad(this: Page1, superOnLoad: () => void) {
         width: 300,
         height: 400
     });
+    this.label1 = new Label({
+        text: "1"
+    })
+    this.label2 = new Label({
+        text: "2"
+    })
+    this.flexLayout1.addChild(this.label1, 'label1', ".sf-label")
+    this.flexLayout1.addChild(this.label2, 'label2', ".sf-label")
+
     this.headerBar.leftItemEnabled = false;
     this.headerBar.titleLayout = new PageTitleLayout();
     componentContextPatch(this.headerBar.titleLayout, 'titleLayout');

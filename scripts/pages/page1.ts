@@ -12,8 +12,7 @@ import ImageView from '@smartface/native/ui/imageview';
 import FlexLayout from '@smartface/native/ui/flexlayout';
 
 export default class Page1 extends Page1Design {
-    myImageView: ImageView;
-    myImage: Image;
+    myImageView: StyleContextComponentType<ImageView>;
     router: any;
     constructor() {
         super();
@@ -33,29 +32,34 @@ export default class Page1 extends Page1Design {
 
 
     async getCurrentLocation() {
-        console.log('current location')
-        Location.start(Location.Android.Priority.HIGH_ACCURACY, 1000);
-        const loc = await getLocation();
-        console.log('location =>', loc);
-        if (loc) {
-            const response = await getWeatherByLocation(loc.latitude, loc.longitude);
-            if (response) {
-                console.log('loc weather response', response);
-                this.labelCity.text = response.name;
-                this.labelTemp.text = response.main.temp;
-                this.labelFeelsLike.text = response.main.feels_like;
-                this.toggleIndicatorVisibility(false);
-            } else {
-                this.toggleIndicatorVisibility(false);
+        try {
+            console.log('current location')
+            // Location.start(Location.Android.Priority.HIGH_ACCURACY, 1000);
+            const loc = await getLocation();
+            console.log('location =>', loc);
+            if (loc) {
+                const response = await getWeatherByLocation(loc.latitude, loc.longitude);
+                if (response) {
+                    console.log('loc weather response', response);
+                    this.labelCity.text = response.name;
+                    this.labelTemp.text = response.main.temp;
+                    this.labelFeelsLike.text = response.main.feels_like;
+                    this.toggleIndicatorVisibility(false);
+                } else {
+                    this.toggleIndicatorVisibility(false);
+                }
             }
+            // getLocation = async (e) => {
+            //   const response = await getWeatherByLocation(e.latitude, e.longitude);
+            //   console.log('location response', response);
+            // };
+            // setTimeout(() => {
+            //   Location.stop();
+            // }, 500);
         }
-        // getLocation = async (e) => {
-        //   const response = await getWeatherByLocation(e.latitude, e.longitude);
-        //   console.log('location response', response);
-        // };
-        // setTimeout(() => {
-        //   Location.stop();
-        // }, 500);
+        catch(e) {
+            console.error(e);
+        }
     }
     toggleIndicatorVisibility(toggle: boolean) {
         this.activityIndicator1.dispatch({
@@ -78,7 +82,7 @@ function onShow(this: Page1, superOnShow: () => void) {
     Location.android.checkSettings({
         onSuccess: () => {
             console.log('Location.checkSettings onSuccess');
-            PermissionUtil.getPermission(Application.Android.Permissions.ACCESS_FINE_LOCATION, 'Please go to the settings and grant permission')
+            PermissionUtil.getPermission({androidPermission: Application.Android.Permissions.ACCESS_FINE_LOCATION, permissionText: 'Please go to the settings and grant permission' })
                 .then(() => {
                     this.getCurrentLocation();
                 })
@@ -110,10 +114,11 @@ function onShow(this: Page1, superOnShow: () => void) {
  */
 function onLoad(this: Page1, superOnLoad: () => void) {
     superOnLoad();
+    //@ts-ignore - wrong usage
     this.myImage = Image.createFromFile("assets://weather/sunny.png")
     this.myImageView = new ImageView({
         image: this.myImage
-    });
+    }) as StyleContextComponentType<ImageView>;
     this.addChild(this.myImageView, "myImageView", ".sf-imageView", {
         left: 0,
         width: 300,

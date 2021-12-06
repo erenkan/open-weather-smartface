@@ -9,10 +9,11 @@ import { getWeatherByCityName, getWeatherByLocation } from '../api/weatherReposi
 import { getLocation } from '@smartface/extension-utils/lib/location';
 import Image from '@smartface/native/ui/image';
 import ImageView from '@smartface/native/ui/imageview';
-import FlexLayout from '@smartface/native/ui/flexlayout';
 
 export default class Page1 extends Page1Design {
-    myImageView: StyleContextComponentType<ImageView>;
+
+    myImageView: ImageView;
+    myImage: Image;
     router: any;
     constructor() {
         super();
@@ -20,45 +21,46 @@ export default class Page1 extends Page1Design {
         this.onShow = onShow.bind(this, this.onShow.bind(this));
         // Overrides super.onLoad method
         this.onLoad = onLoad.bind(this, this.onLoad.bind(this));
+
         this.btnNext.onPress = async () => {
             console.log(this.cityName.text);
             const response = await getWeatherByCityName(this.cityName.text);
+            this.toggleIndicatorVisibility(true);
             console.log('api response ->', response);
+            if (response) {
+                console.log('loc weather response', response);
+                this.labelCity.text = response.name;
+                this.labelTemp.text = response.main.temp;
+                this.labelFeelsLike.text = response.main.feels_like;
+                this.toggleIndicatorVisibility(false);
+            }
+            else {
+                this.toggleIndicatorVisibility(false);
+            }
             //   this.router.push('/pages/page2', { message: 'Hello World!' });
         };
         this.cityName.onActionButtonPress = this.btnNext.onPress;
+
     }
 
 
 
     async getCurrentLocation() {
-        try {
-            console.log('current location')
-            // Location.start(Location.Android.Priority.HIGH_ACCURACY, 1000);
-            const loc = await getLocation();
-            console.log('location =>', loc);
-            if (loc) {
-                const response = await getWeatherByLocation(loc.latitude, loc.longitude);
-                if (response) {
-                    console.log('loc weather response', response);
-                    this.labelCity.text = response.name;
-                    this.labelTemp.text = response.main.temp;
-                    this.labelFeelsLike.text = response.main.feels_like;
-                    this.toggleIndicatorVisibility(false);
-                } else {
-                    this.toggleIndicatorVisibility(false);
-                }
+        console.log('current location')
+        Location.start(Location.Android.Priority.HIGH_ACCURACY, 1000);
+        const loc = await getLocation();
+        console.log('location =>', loc);
+        if (loc) {
+            const response = await getWeatherByLocation(loc.latitude, loc.longitude);
+            if (response) {
+                console.log('loc weather response', response);
+                this.labelCity.text = response.name;
+                this.labelTemp.text = response.main.temp;
+                this.labelFeelsLike.text = response.main.feels_like;
+                this.toggleIndicatorVisibility(false);
+            } else {
+                this.toggleIndicatorVisibility(false);
             }
-            // getLocation = async (e) => {
-            //   const response = await getWeatherByLocation(e.latitude, e.longitude);
-            //   console.log('location response', response);
-            // };
-            // setTimeout(() => {
-            //   Location.stop();
-            // }, 500);
-        }
-        catch(e) {
-            console.error(e);
         }
     }
     toggleIndicatorVisibility(toggle: boolean) {
@@ -82,7 +84,7 @@ function onShow(this: Page1, superOnShow: () => void) {
     Location.android.checkSettings({
         onSuccess: () => {
             console.log('Location.checkSettings onSuccess');
-            PermissionUtil.getPermission({androidPermission: Application.Android.Permissions.ACCESS_FINE_LOCATION, permissionText: 'Please go to the settings and grant permission' })
+            PermissionUtil.getPermission(Application.Android.Permissions.ACCESS_FINE_LOCATION, 'Please go to the settings and grant permission')
                 .then(() => {
                     this.getCurrentLocation();
                 })
@@ -114,11 +116,10 @@ function onShow(this: Page1, superOnShow: () => void) {
  */
 function onLoad(this: Page1, superOnLoad: () => void) {
     superOnLoad();
-    //@ts-ignore - wrong usage
     this.myImage = Image.createFromFile("assets://weather/sunny.png")
     this.myImageView = new ImageView({
         image: this.myImage
-    }) as StyleContextComponentType<ImageView>;
+    });
     this.addChild(this.myImageView, "myImageView", ".sf-imageView", {
         left: 0,
         width: 300,

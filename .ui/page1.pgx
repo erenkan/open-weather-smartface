@@ -8,11 +8,12 @@
 				"children": [
 					"42b807d1",
 					"b7d28cff",
+					"4093-2d86-679b-cbe1",
+					"452d-ad29-983b-7b10",
+					"4495-e916-bb7a-955f",
 					"8e4c-1828-358d-42c8",
 					"be1a-41f1-58ab-13a6",
-					"9e49-7873-afba-472b",
-					"8ee5-1988-9b0d-2783",
-					"da5b-3ce0-dbed-92d2"
+					"9e49-7873-afba-472b"
 				],
 				"isRemovable": true,
 				"name": "page1",
@@ -23,7 +24,7 @@
 			"type": "Page",
 			"userProps": {
 				"flexProps": {
-					"justifyContent": "SPACE_AROUND",
+					"justifyContent": "SPACE_BETWEEN",
 					"alignItems": "STRETCH",
 					"direction": "INHERIT",
 					"flexWrap": "NOWRAP",
@@ -66,6 +67,390 @@
 			"userProps": {
 				"title": "Page1",
 				"visible": true
+			}
+		},
+		{
+			"className": ".sf-flexLayout",
+			"id": "4093-2d86-679b-cbe1",
+			"props": {
+				"children": [
+					"bb6b-f948-6a74-347d",
+					"4751-2e03-91c3-9eb1",
+					"3192-3bad-7324-f071"
+				],
+				"name": "flexLayout2",
+				"parent": "e891b86d",
+				"usePageVariable": true
+			},
+			"type": "FlexLayout",
+			"userProps": {
+				"flexProps": {
+					"flexDirection": "ROW",
+					"justifyContent": "SPACE_BETWEEN",
+					"alignItems": "STRETCH",
+					"alignContent": "CENTER",
+					"flexWrap": "NOWRAP"
+				},
+				"height": 50,
+				"marginBottom": null,
+				"marginTop": null,
+				"testId": "OtN7yHveD",
+				"usePageVariable": true
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "bb6b-f948-6a74-347d",
+			"props": {
+				"children": [],
+				"name": "labelLocationIcon",
+				"parent": "4093-2d86-679b-cbe1",
+				"text": "",
+				"usePageVariable": true
+			},
+			"type": "Label",
+			"userProps": {
+				"font": {
+					"size": 17,
+					"bold": false,
+					"italic": false,
+					"family": "FontAwesome5FreeSolid",
+					"style": null
+				},
+				"left": 0,
+				"testId": "dt-mAXewa",
+				"text": "",
+				"textAlignment": "MIDCENTER",
+				"textColor": "rgba( 0, 0, 0, 1 )",
+				"top": 0,
+				"usePageVariable": true,
+				"width": 50
+			}
+		},
+		{
+			"className": ".sf-label",
+			"hiddenComponent": false,
+			"id": "4751-2e03-91c3-9eb1",
+			"props": {
+				"children": [],
+				"name": "labelCity",
+				"parent": "4093-2d86-679b-cbe1",
+				"text": "labelCity",
+				"usePageVariable": true
+			},
+			"type": "Label",
+			"userProps": {
+				"alpha": 1,
+				"ellipsizeMode": "END",
+				"flexProps": {
+					"alignSelf": "STRETCH",
+					"positionType": "RELATIVE",
+					"flexGrow": 1
+				},
+				"font": {
+					"size": 18,
+					"bold": true,
+					"italic": false,
+					"family": "SFProText",
+					"style": "Semibold"
+				},
+				"height": null,
+				"ios": {
+					"shadowOpacity": 0
+				},
+				"marginBottom": null,
+				"marginTop": null,
+				"testId": "BD_NmgX3C",
+				"text": "labelCity",
+				"textAlignment": "MIDLEFT",
+				"textColor": "rgba( 0, 0, 0, 1 )",
+				"usePageVariable": true,
+				"visible": true,
+				"width": null
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "3192-3bad-7324-f071",
+			"props": {
+				"children": [],
+				"name": "labelCalendarIcon",
+				"parent": "4093-2d86-679b-cbe1",
+				"text": ""
+			},
+			"type": "Label",
+			"userProps": {
+				"font": {
+					"size": 17,
+					"bold": false,
+					"italic": false,
+					"family": "FontAwesome5FreeRegular",
+					"style": null
+				},
+				"left": 0,
+				"testId": "AOFPleqid",
+				"text": "",
+				"textColor": "rgba( 0, 0, 0, 1 )",
+				"top": 0
+			}
+		},
+		{
+			"className": ".sf-flexLayout",
+			"id": "452d-ad29-983b-7b10",
+			"props": {
+				"children": [
+					"7547-9ab9-e7a7-648e",
+					"f08a-ec36-7d54-65e1",
+					"77f1-4ea0-6788-f709"
+				],
+				"name": "flexLayout1",
+				"parent": "e891b86d",
+				"usePageVariable": true
+			},
+			"type": "FlexLayout",
+			"userProps": {
+				"alpha": 1,
+				"flexProps": {
+					"flexDirection": "COLUMN",
+					"alignSelf": "STRETCH",
+					"justifyContent": "SPACE_AROUND",
+					"alignContent": "STRETCH",
+					"positionType": "RELATIVE",
+					"alignItems": "STRETCH",
+					"direction": "LTR"
+				},
+				"height": 200,
+				"testId": "KMIa5efGC",
+				"usePageVariable": true,
+				"width": null
+			}
+		},
+		{
+			"className": ".sf-imageView",
+			"hiddenComponent": false,
+			"id": "7547-9ab9-e7a7-648e",
+			"props": {
+				"children": [],
+				"name": "imageView1",
+				"parent": "452d-ad29-983b-7b10",
+				"usePageVariable": true
+			},
+			"type": "ImageView",
+			"userProps": {
+				"flexProps": {
+					"alignSelf": "CENTER"
+				},
+				"height": 80,
+				"imageFillType": "ASPECTFIT",
+				"left": 0,
+				"marginBottom": null,
+				"marginTop": null,
+				"testId": "eDSPsoHzZ",
+				"top": 0,
+				"usePageVariable": true,
+				"width": 80
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "f08a-ec36-7d54-65e1",
+			"props": {
+				"children": [],
+				"name": "labelWeatherStatus",
+				"parent": "452d-ad29-983b-7b10",
+				"text": "labelWeatherStatus",
+				"usePageVariable": true
+			},
+			"type": "Label",
+			"userProps": {
+				"flexProps": {
+					"alignSelf": "CENTER"
+				},
+				"font": {
+					"size": 17,
+					"bold": false,
+					"italic": false,
+					"family": "SFProText",
+					"style": "Regular"
+				},
+				"left": 0,
+				"marginBottom": null,
+				"marginTop": null,
+				"testId": "5zRAfw-Q7",
+				"text": "labelWeatherStatus",
+				"textAlignment": "MIDCENTER",
+				"textColor": "rgba( 155, 155, 155, 1 )",
+				"top": 0,
+				"usePageVariable": true,
+				"width": 180
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "77f1-4ea0-6788-f709",
+			"props": {
+				"autoHeight": 39.325842696629216,
+				"children": [],
+				"name": "labelTemp",
+				"parent": "452d-ad29-983b-7b10",
+				"text": "labelTemp",
+				"usePageVariable": true
+			},
+			"type": "Label",
+			"userProps": {
+				"autoHeight": 39.325842696629216,
+				"backgroundColor": "rgba( 255, 255, 255, 0 )",
+				"flexProps": {
+					"marginLeft": 20,
+					"marginRight": 20,
+					"alignSelf": "CENTER"
+				},
+				"font": {
+					"size": 32,
+					"bold": false,
+					"italic": false,
+					"family": "SFProText",
+					"style": "Regular"
+				},
+				"height": 44,
+				"left": 0,
+				"marginBottom": null,
+				"marginTop": null,
+				"multiline": true,
+				"testId": "L-42gAben",
+				"text": "labelTemp",
+				"textAlignment": "MIDCENTER",
+				"textColor": "rgba( 2, 2, 2, 1 )",
+				"top": 0,
+				"usePageVariable": true,
+				"width": 152
+			}
+		},
+		{
+			"className": ".sf-flexLayout",
+			"id": "4495-e916-bb7a-955f",
+			"props": {
+				"children": [
+					"225c-1f73-ceb1-d123",
+					"bc01-ed26-1e5a-596e",
+					"fe1c-83a2-ab30-36fc",
+					"f065-2fdf-df0f-9b2b"
+				],
+				"name": "flexLayout3",
+				"parent": "e891b86d",
+				"usePageVariable": true
+			},
+			"type": "FlexLayout",
+			"userProps": {
+				"flexProps": {
+					"flexDirection": "ROW",
+					"justifyContent": "SPACE_BETWEEN"
+				},
+				"height": 50,
+				"testId": "Jeb1RCrqF",
+				"usePageVariable": true
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "225c-1f73-ceb1-d123",
+			"props": {
+				"children": [],
+				"name": "labelWind",
+				"parent": "4495-e916-bb7a-955f",
+				"text": "",
+				"usePageVariable": true
+			},
+			"type": "Label",
+			"userProps": {
+				"flexProps": {
+					"alignSelf": "CENTER"
+				},
+				"font": {
+					"size": 17,
+					"bold": false,
+					"italic": false,
+					"family": "FontAwesome5FreeSolid",
+					"style": null
+				},
+				"left": 0,
+				"testId": "Ebm6hQReB",
+				"text": "",
+				"textAlignment": "MIDCENTER",
+				"textColor": "rgba( 74, 74, 74, 1 )",
+				"top": 0,
+				"usePageVariable": true,
+				"width": 100
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "bc01-ed26-1e5a-596e",
+			"props": {
+				"children": [],
+				"name": "labelWindspeed",
+				"parent": "4495-e916-bb7a-955f",
+				"usePageVariable": true
+			},
+			"type": "Label",
+			"userProps": {
+				"left": 0,
+				"testId": "_OGDlm13W",
+				"textColor": "rgba( 155, 155, 155, 1 )",
+				"top": 0,
+				"usePageVariable": true,
+				"width": 50
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "fe1c-83a2-ab30-36fc",
+			"props": {
+				"children": [],
+				"name": "labelHumi",
+				"parent": "4495-e916-bb7a-955f",
+				"text": "",
+				"usePageVariable": true
+			},
+			"type": "Label",
+			"userProps": {
+				"flexProps": {
+					"alignSelf": "AUTO"
+				},
+				"font": {
+					"size": 17,
+					"bold": false,
+					"italic": false,
+					"family": "FontAwesome5FreeSolid",
+					"style": null
+				},
+				"left": 0,
+				"testId": "ic-C4ZYDf",
+				"text": "",
+				"textAlignment": "MIDCENTER",
+				"textColor": "rgba( 74, 74, 74, 1 )",
+				"top": 0,
+				"usePageVariable": true,
+				"width": 100
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "f065-2fdf-df0f-9b2b",
+			"props": {
+				"children": [],
+				"name": "labelHumidity",
+				"parent": "4495-e916-bb7a-955f",
+				"usePageVariable": true
+			},
+			"type": "Label",
+			"userProps": {
+				"left": 0,
+				"testId": "RE7CuGPVm",
+				"textColor": "rgba( 155, 155, 155, 1 )",
+				"top": 0,
+				"usePageVariable": true,
+				"width": 50
 			}
 		},
 		{
@@ -135,156 +520,6 @@
 				"textAlignment": "MIDCENTER",
 				"usePageVariable": true,
 				"width": null
-			}
-		},
-		{
-			"className": ".sf-imageView",
-			"id": "8ee5-1988-9b0d-2783",
-			"props": {
-				"children": [],
-				"name": "myImage",
-				"parent": "e891b86d",
-				"usePageVariable": true
-			},
-			"type": "ImageView",
-			"userProps": {
-				"flexProps": {},
-				"height": "72.16",
-				"testId": "MKx9a82Lv",
-				"usePageVariable": true,
-				"width": "71.13"
-			}
-		},
-		{
-			"className": ".sf-flexLayout",
-			"id": "da5b-3ce0-dbed-92d2",
-			"props": {
-				"children": [
-					"cee4-fdf3-a5e3-ddd8",
-					"8889-1d20-5303-3beb",
-					"84ca-80d3-aa5f-5d45"
-				],
-				"name": "flexLayout1",
-				"parent": "e891b86d",
-				"usePageVariable": true
-			},
-			"type": "FlexLayout",
-			"userProps": {
-				"flexProps": {
-					"flexDirection": "ROW",
-					"alignSelf": "STRETCH",
-					"justifyContent": "SPACE_AROUND"
-				},
-				"height": 150,
-				"testId": "KMIa5efGC",
-				"usePageVariable": true
-			}
-		},
-		{
-			"className": ".sf-label",
-			"hiddenComponent": false,
-			"id": "cee4-fdf3-a5e3-ddd8",
-			"props": {
-				"children": [],
-				"name": "labelCity",
-				"parent": "da5b-3ce0-dbed-92d2",
-				"text": "labelCity",
-				"usePageVariable": true
-			},
-			"type": "Label",
-			"userProps": {
-				"alpha": 1,
-				"flexProps": {
-					"alignSelf": "CENTER",
-					"positionType": "RELATIVE"
-				},
-				"font": {
-					"size": 28,
-					"bold": false,
-					"italic": false,
-					"family": "SFProText",
-					"style": "Medium"
-				},
-				"height": 50,
-				"ios": {
-					"shadowOpacity": 0
-				},
-				"left": 0,
-				"marginBottom": null,
-				"marginTop": null,
-				"testId": "BD_NmgX3C",
-				"text": "labelCity",
-				"textAlignment": "MIDCENTER",
-				"top": 0,
-				"usePageVariable": true,
-				"visible": true,
-				"width": 150
-			}
-		},
-		{
-			"className": ".sf-label",
-			"id": "8889-1d20-5303-3beb",
-			"props": {
-				"autoHeight": 39.325842696629216,
-				"children": [],
-				"name": "labelTemp",
-				"parent": "da5b-3ce0-dbed-92d2",
-				"text": "labelTemp",
-				"usePageVariable": true
-			},
-			"type": "Label",
-			"userProps": {
-				"autoHeight": 39.325842696629216,
-				"backgroundColor": "rgba( 255, 255, 255, 0 )",
-				"flexProps": {
-					"marginLeft": 20,
-					"marginRight": 20,
-					"alignSelf": "CENTER"
-				},
-				"font": {
-					"size": 32,
-					"bold": false,
-					"italic": false,
-					"family": "SFProText",
-					"style": "Regular"
-				},
-				"height": 44,
-				"left": 0,
-				"marginBottom": null,
-				"marginTop": null,
-				"multiline": true,
-				"testId": "L-42gAben",
-				"text": "labelTemp",
-				"textAlignment": "MIDCENTER",
-				"textColor": "rgba( 2, 2, 2, 1 )",
-				"top": 0,
-				"usePageVariable": true,
-				"width": 152
-			}
-		},
-		{
-			"className": ".sf-label",
-			"id": "84ca-80d3-aa5f-5d45",
-			"props": {
-				"children": [],
-				"name": "labelFeelsLike",
-				"parent": "da5b-3ce0-dbed-92d2",
-				"text": "labelFeelsLike",
-				"usePageVariable": true
-			},
-			"type": "Label",
-			"userProps": {
-				"flexProps": {
-					"alignSelf": "CENTER"
-				},
-				"height": 38,
-				"left": 0,
-				"testId": "9i94XlSnL",
-				"text": "labelFeelsLike",
-				"textAlignment": "MIDCENTER",
-				"top": 0,
-				"usePageVariable": true,
-				"width": "125"
 			}
 		}
 	]

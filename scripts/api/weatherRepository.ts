@@ -1,4 +1,4 @@
-import { baseURLApi } from './index';
+import { baseURLApi, baseOneCallApi } from './index';
 
 export async function getWeatherByCityName(cityName: string) {
   try {
@@ -20,3 +20,13 @@ export async function getWeatherByLocation(lat: number, lon: number) {
     throw err;
   }
 }
+export async function getWeatherOneCall(lat: number, lon: number) {
+    try {
+      return await baseOneCallApi.request(`&lat=${lat}&lon=${lon}`, {
+        method: 'GET'
+      });
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }

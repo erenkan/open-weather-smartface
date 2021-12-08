@@ -7,10 +7,17 @@ import Location from '@smartface/native/device/location';
 import PermissionUtil from '@smartface/extension-utils/lib/permission';
 import { getWeatherByCityName, getWeatherByLocation } from '../api/weatherRepository';
 import { getLocation } from '@smartface/extension-utils/lib/location';
+import Label from '@smartface/native/ui/label';
+import View from '@smartface/native/ui/view';
 export default class Page1 extends Page1Design {
     router: any;
+    longitude: any;
+    latitude: any;
+    city: any;
     constructor() {
         super();
+        let lat = String;
+        let lon = String
         // Overrides super.onShow method
         this.onShow = onShow.bind(this, this.onShow.bind(this));
         // Overrides super.onLoad method
@@ -24,20 +31,32 @@ export default class Page1 extends Page1Design {
                 this.labelWeatherStatus.text = response.weather[0].description
                 this.labelWindspeed.text = response.wind.speed
                 this.labelHumidity.text = response.main.humidity
+                this.latitude = response.coord.lat;
+                this.longitude = response.coord.lat;
+                this.city = response.name;
                 this.imageView1.loadFromUrl({
                     url: `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`,
                 })
                 this.labelCity.text = response.name;
                 this.labelTemp.text = response.main.temp;
                 this.toggleIndicatorVisibility(false);
+
             }
             else {
                 this.toggleIndicatorVisibility(false);
             }
-            //   this.router.push('/pages/page2', { message: 'Hello World!' });
         };
         this.cityName.onActionButtonPress = this.btnNext.onPress;
 
+        this.labelCalendarIcon.on(View.Events.Touch, () => {
+            this.router.push('/pages/page2', {
+                coords: {
+                    latitude: this.latitude,
+                    longitude: this.longitude,
+                    city: this.city
+                }
+            });
+        })
     }
 
 
@@ -52,6 +71,9 @@ export default class Page1 extends Page1Design {
                 this.labelWeatherStatus.text = response.weather[0].description
                 this.labelWindspeed.text = response.wind.speed
                 this.labelHumidity.text = response.main.humidity
+                this.latitude = response.coord.lat;
+                this.longitude = response.coord.lat;
+                this.city = response.name;
                 this.imageView1.loadFromUrl({
                     url: `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`,
                 })

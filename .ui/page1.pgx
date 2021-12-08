@@ -41,6 +41,7 @@
 		},
 		{
 			"className": ".sf-statusBar",
+			"hiddenComponent": false,
 			"id": "42b807d1",
 			"props": {
 				"children": [],
@@ -55,6 +56,7 @@
 		},
 		{
 			"className": ".sf-headerBar",
+			"hiddenComponent": false,
 			"id": "b7d28cff",
 			"props": {
 				"children": [],
@@ -66,7 +68,7 @@
 			"type": "HeaderBar",
 			"userProps": {
 				"title": "Page1",
-				"visible": true
+				"visible": false
 			}
 		},
 		{
@@ -176,7 +178,8 @@
 				"children": [],
 				"name": "labelCalendarIcon",
 				"parent": "4093-2d86-679b-cbe1",
-				"text": ""
+				"text": "",
+				"usePageVariable": true
 			},
 			"type": "Label",
 			"userProps": {
@@ -191,7 +194,8 @@
 				"testId": "AOFPleqid",
 				"text": "",
 				"textColor": "rgba( 0, 0, 0, 1 )",
-				"top": 0
+				"top": 0,
+				"usePageVariable": true
 			}
 		},
 		{

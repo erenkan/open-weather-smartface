@@ -1,0 +1,123 @@
+{
+	"components": [
+		{
+			"className": ".sf-gridViewItem",
+			"id": "ac3d-c962-1b3c-ca16",
+			"props": {
+				"children": [
+					"05b7-e777-9dfb-b840",
+					"d835-056b-cab3-00e6",
+					"1314-2d1a-91da-2a12",
+					"68c4-8171-caba-6c93"
+				],
+				"name": "gridViewItem1",
+				"parent": "57f4-201f-4bfc-5fc6"
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "GridViewItem",
+			"userProps": {
+				"flexProps": {
+					"flexDirection": "ROW",
+					"alignItems": "CENTER"
+				},
+				"height": 80,
+				"left": "17.71",
+				"testId": "oDZCxFw9M",
+				"top": "455.21",
+				"width": 350
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "05b7-e777-9dfb-b840",
+			"props": {
+				"children": [],
+				"name": "labelDayName",
+				"parent": "ac3d-c962-1b3c-ca16",
+				"text": "DayName",
+				"usePageVariable": true
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "Label",
+			"userProps": {
+				"flexProps": {
+					"flexGrow": 1
+				},
+				"testId": "yzBmRAAA9",
+				"text": "DayName",
+				"usePageVariable": true
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "d835-056b-cab3-00e6",
+			"props": {
+				"children": [],
+				"name": "labelDayTemp",
+				"parent": "ac3d-c962-1b3c-ca16",
+				"text": "DayTemp",
+				"usePageVariable": true
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "Label",
+			"userProps": {
+				"flexProps": {
+					"flexGrow": 1
+				},
+				"testId": "zBNbqqHXd",
+				"text": "DayTemp",
+				"usePageVariable": true
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "1314-2d1a-91da-2a12",
+			"props": {
+				"children": [],
+				"name": "labelNightTemp",
+				"parent": "ac3d-c962-1b3c-ca16",
+				"text": "NightTemp",
+				"usePageVariable": true
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "Label",
+			"userProps": {
+				"flexProps": {
+					"flexGrow": 1
+				},
+				"testId": "6ktrCRXUG",
+				"text": "NightTemp",
+				"usePageVariable": true
+			}
+		},
+		{
+			"className": ".sf-imageView",
+			"id": "68c4-8171-caba-6c93",
+			"props": {
+				"children": [],
+				"name": "imageDayIcon",
+				"parent": "ac3d-c962-1b3c-ca16",
+				"usePageVariable": true
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "ImageView",
+			"userProps": {
+				"flexProps": {
+					"flexGrow": 1
+				},
+				"testId": "kgx5CqDSr",
+				"usePageVariable": true
+			}
+		}
+	]
+}

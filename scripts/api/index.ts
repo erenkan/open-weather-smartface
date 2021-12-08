@@ -9,3 +9,11 @@ export const baseURLApi = new ServiceCall({
     apiVersion: '1.0'
   }
 });
+export const baseOneCallApi = new ServiceCall({
+    baseUrl: `https://api.openweathermap.org/data/2.5/onecall?appid=${apiKey}&units=metric`,
+    logEnabled: true,
+    headers: {
+      apiVersion: '1.0'
+    }
+  });
+  

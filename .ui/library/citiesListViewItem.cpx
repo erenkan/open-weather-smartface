@@ -1,0 +1,45 @@
+{
+	"components": [
+		{
+			"className": ".sf-listViewItem",
+			"id": "218f-7135-2859-c177",
+			"props": {
+				"children": [
+					"7e2d-27df-924c-41f4"
+				],
+				"name": "citiesListViewItem",
+				"parent": "57f4-201f-4bfc-5fc6"
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "ListViewItem",
+			"userProps": {
+				"flexProps": {},
+				"left": "-1.04",
+				"testId": "l4s3h1yi5",
+				"top": "596.88"
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "7e2d-27df-924c-41f4",
+			"props": {
+				"children": [],
+				"name": "lblListCityName",
+				"parent": "218f-7135-2859-c177",
+				"text": "cityName",
+				"usePageVariable": true
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "Label",
+			"userProps": {
+				"testId": "V1WxLiPL5",
+				"text": "cityName",
+				"usePageVariable": true
+			}
+		}
+	]
+}

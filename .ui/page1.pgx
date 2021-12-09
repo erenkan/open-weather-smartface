@@ -11,9 +11,7 @@
 					"4093-2d86-679b-cbe1",
 					"452d-ad29-983b-7b10",
 					"4495-e916-bb7a-955f",
-					"8e4c-1828-358d-42c8",
-					"be1a-41f1-58ab-13a6",
-					"9e49-7873-afba-472b"
+					"8e4c-1828-358d-42c8"
 				],
 				"isRemovable": true,
 				"name": "page1",
@@ -283,7 +281,7 @@
 				"testId": "5zRAfw-Q7",
 				"text": "labelWeatherStatus",
 				"textAlignment": "MIDCENTER",
-				"textColor": "rgba( 155, 155, 155, 1 )",
+				"textColor": "rgba( 63, 63, 65, 1 )",
 				"top": 0,
 				"usePageVariable": true,
 				"width": 180
@@ -400,7 +398,7 @@
 			"userProps": {
 				"left": 0,
 				"testId": "_OGDlm13W",
-				"textColor": "rgba( 155, 155, 155, 1 )",
+				"textColor": "rgba( 63, 63, 65, 1 )",
 				"top": 0,
 				"usePageVariable": true,
 				"width": 50
@@ -451,7 +449,7 @@
 			"userProps": {
 				"left": 0,
 				"testId": "RE7CuGPVm",
-				"textColor": "rgba( 155, 155, 155, 1 )",
+				"textColor": "rgba( 63, 63, 65, 1 )",
 				"top": 0,
 				"usePageVariable": true,
 				"width": 50
@@ -474,56 +472,6 @@
 				},
 				"testId": "wZgOt8P8-",
 				"usePageVariable": true
-			}
-		},
-		{
-			"className": ".sf-textBox",
-			"id": "be1a-41f1-58ab-13a6",
-			"props": {
-				"children": [],
-				"name": "cityName",
-				"parent": "e891b86d",
-				"usePageVariable": true
-			},
-			"type": "TextBox",
-			"userProps": {
-				"flexProps": {
-					"alignSelf": "AUTO",
-					"positionType": "RELATIVE"
-				},
-				"testId": "ztXCRQvc5",
-				"textAlignment": "MIDLEFT",
-				"usePageVariable": true
-			}
-		},
-		{
-			"className": ".sf-button",
-			"id": "9e49-7873-afba-472b",
-			"props": {
-				"autoHeight": 50.561797752808985,
-				"children": [],
-				"name": "btnNext",
-				"parent": "e891b86d",
-				"text": "Search",
-				"usePageVariable": true
-			},
-			"type": "Button",
-			"userProps": {
-				"autoHeight": 50.561797752808985,
-				"borderColor": "rgba( 37, 26, 87, 1 )",
-				"flexProps": {
-					"alignSelf": "AUTO",
-					"positionType": "RELATIVE"
-				},
-				"height": 46,
-				"ios": {
-					"shadowOpacity": 0
-				},
-				"testId": "ucEDBF6ZMB",
-				"text": "Search",
-				"textAlignment": "MIDCENTER",
-				"usePageVariable": true,
-				"width": null
 			}
 		}
 	]

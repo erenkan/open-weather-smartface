@@ -9,7 +9,8 @@ import System from '@smartface/native/device/system';
 import { getWeatherOneCall } from 'api/weatherRepository';
 import GridViewItem1 from 'generated/my-components/GridViewItem1';
 import ListViewItem1 from 'generated/my-components/ListViewItem1';
-
+import View from '@smartface/native/ui/view';
+import moment from 'moment'
 export default class Page2 extends Page2Design {
     router: any;
     routeData: any;
@@ -23,10 +24,13 @@ export default class Page2 extends Page2Design {
         // touch.addPressEvent(this.btnSayHello, () => {
         //   alert('Hello World!');
         // });
+   
+    this.labelBackIcon.on(View.Events.Touch, () => {
+       this.router.goBackto(-1)
+    })
     }
     async getWeatherDetails() {
         if (this.routeData.coords) {
-            
             this.lblCity.text = this.routeData.coords.city;
             const response = await getWeatherOneCall(this.routeData.coords.latitude, this.routeData.coords.longitude);
             console.log('one call api2', response)
@@ -35,11 +39,9 @@ export default class Page2 extends Page2Design {
                     this.listView1.rowHeight = 80;
                     this.listView1.itemCount = response.daily.length;
                     this.listView1.onRowBind = (listViewItem: ListViewItem1, index: number) => {
-                        listViewItem.lblDayName.text = new Date(response.daily[index].dt * 1000).toLocaleDateString("en-US", {
-                            day: 'narrow'
-                        });
-                        listViewItem.lblDayTemp.text = response.daily[index].temp.day;
-                        listViewItem.lblNightTemp.text = response.daily[index].temp.night;
+                        listViewItem.lblDayName.text = moment.unix(response.daily[index].dt).format('dddd')
+                        listViewItem.lblDayTemp.text = Math.round(response.daily[index].temp.day).toString();
+                        listViewItem.lblNightTemp.text = Math.round(response.daily[index].temp.night).toString();
                         listViewItem.imgDayIcon.loadFromUrl({
                             url: `https://openweathermap.org/img/wn/${response.daily[index].weather[0].icon}@2x.png`,
                         })

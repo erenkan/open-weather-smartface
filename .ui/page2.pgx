@@ -46,6 +46,7 @@
 		},
 		{
 			"className": ".sf-headerBar",
+			"hiddenComponent": false,
 			"id": "35f1c1a1",
 			"props": {
 				"children": [],
@@ -57,7 +58,7 @@
 			"type": "HeaderBar",
 			"userProps": {
 				"title": "Page2",
-				"visible": true
+				"visible": false
 			}
 		},
 		{
@@ -90,7 +91,8 @@
 				"children": [],
 				"name": "labelBackIcon",
 				"parent": "ea54-ef27-de53-3ec5",
-				"text": ""
+				"text": "",
+				"usePageVariable": true
 			},
 			"type": "Label",
 			"userProps": {
@@ -109,6 +111,7 @@
 				"text": "",
 				"textAlignment": "MIDCENTER",
 				"top": 0,
+				"usePageVariable": true,
 				"width": 50
 			}
 		},

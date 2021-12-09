@@ -9,8 +9,12 @@ import { getWeatherByCityName, getWeatherByLocation } from '../api/weatherReposi
 import { getLocation } from '@smartface/extension-utils/lib/location';
 import Label from '@smartface/native/ui/label';
 import View from '@smartface/native/ui/view';
+import Color from '@smartface/native/ui/color';
+import cities from 'utils/cities';
+import CitiesListViewItem from 'generated/my-components/CitiesListViewItem';
 export default class Page1 extends Page1Design {
     router: any;
+    routeData: any;
     longitude: any;
     latitude: any;
     city: any;
@@ -22,32 +26,6 @@ export default class Page1 extends Page1Design {
         this.onShow = onShow.bind(this, this.onShow.bind(this));
         // Overrides super.onLoad method
         this.onLoad = onLoad.bind(this, this.onLoad.bind(this));
-
-        this.btnNext.onPress = async () => {
-            const response = await getWeatherByCityName(this.cityName.text);
-            this.toggleIndicatorVisibility(true);
-            if (response) {
-                console.log('weather response', response);
-                this.labelWeatherStatus.text = response.weather[0].description
-                this.labelWindspeed.text = response.wind.speed
-                this.labelHumidity.text = response.main.humidity
-                this.latitude = response.coord.lat;
-                this.longitude = response.coord.lat;
-                this.city = response.name;
-                this.imageView1.loadFromUrl({
-                    url: `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`,
-                })
-                this.labelCity.text = response.name;
-                this.labelTemp.text = response.main.temp;
-                this.toggleIndicatorVisibility(false);
-
-            }
-            else {
-                this.toggleIndicatorVisibility(false);
-            }
-        };
-        this.cityName.onActionButtonPress = this.btnNext.onPress;
-
         this.labelCalendarIcon.on(View.Events.Touch, () => {
             this.router.push('/pages/page2', {
                 coords: {
@@ -57,9 +35,36 @@ export default class Page1 extends Page1Design {
                 }
             });
         })
+        this.labelLocationIcon.on(View.Events.Touch, () => {
+            this.router.push('/pages/citySelectPage');
+        })
     }
 
+    async getWeather(cityName: string) {
+        this.toggleIndicatorVisibility(true);
+        const response = await getWeatherByCityName(cityName);
+        if (response) {
+            console.log('weather responses', response);
+            this.labelWeatherStatus.text = response.weather[0].description
+            this.labelWindspeed.text = response.wind.speed
+            this.labelHumidity.text = `${response.main.humidity}%`
+            this.latitude = response.coord.lat;
+            this.longitude = response.coord.lat;
+            this.city = response.name;
+            this.imageView1.loadFromUrl({
+                url: `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`,
+            })
+            this.labelCity.text = response.name;
+            this.labelTemp.text = Math.round(response.main.temp).toString();
+            this.changeBackgroudByWeather(response.weather[0].main)
+            this.toggleIndicatorVisibility(false);
 
+        }
+        else {
+            this.toggleIndicatorVisibility(false);
+        }
+
+    }
 
     async getCurrentLocation() {
         Location.start(Location.Android.Priority.HIGH_ACCURACY, 1000);
@@ -70,7 +75,7 @@ export default class Page1 extends Page1Design {
                 console.log('weather response', response);
                 this.labelWeatherStatus.text = response.weather[0].description
                 this.labelWindspeed.text = response.wind.speed
-                this.labelHumidity.text = response.main.humidity
+                this.labelHumidity.text = `${response.main.humidity}%`
                 this.latitude = response.coord.lat;
                 this.longitude = response.coord.lat;
                 this.city = response.name;
@@ -78,7 +83,8 @@ export default class Page1 extends Page1Design {
                     url: `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`,
                 })
                 this.labelCity.text = response.name;
-                this.labelTemp.text = response.main.temp;
+                this.labelTemp.text = Math.round(response.main.temp).toString();
+                this.changeBackgroudByWeather(response.weather[0].main)
                 this.toggleIndicatorVisibility(false);
             } else {
                 this.toggleIndicatorVisibility(false);
@@ -93,6 +99,41 @@ export default class Page1 extends Page1Design {
             }
         });
     }
+    changeBackgroudByWeather(weatherType: string) {
+        switch (weatherType) {
+            case 'Clouds':
+                this.layout.backgroundColor = Color.createGradient({
+                    startColor: Color.create('#429f98'),
+                    endColor: Color.create('#70f3e9'),
+                    direction: Color.GradientDirection.VERTICAL
+                })
+                break;
+            case 'Clear':
+                this.layout.backgroundColor = Color.createGradient({
+                    startColor: Color.create('#fccf85'),
+                    endColor: Color.create('#f9eddc'),
+                    direction: Color.GradientDirection.VERTICAL
+                })
+                break;
+            case 'Rain':
+            case 'Thunderstorm':
+                this.layout.backgroundColor = Color.createGradient({
+                    startColor: Color.create('#20414b'),
+                    endColor: Color.create('#5ad4fb'),
+                    direction: Color.GradientDirection.VERTICAL
+                })
+                break;
+            case 'Snow':
+                this.layout.backgroundColor = Color.createGradient({
+                    startColor: Color.create('#9addf2'),
+                    endColor: Color.create('#fcfcfc'),
+                    direction: Color.GradientDirection.VERTICAL
+                })
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 /**
@@ -102,33 +143,6 @@ export default class Page1 extends Page1Design {
 function onShow(this: Page1, superOnShow: () => void) {
     superOnShow();
     this.headerBar.titleLayout.applyLayout();
-
-    Location.android.checkSettings({
-        onSuccess: () => {
-            PermissionUtil.getPermission({ androidPermission: Application.Android.Permissions.ACCESS_FINE_LOCATION, permissionText: 'Please go to the settings and grant permission' })
-                .then(() => {
-                    this.getCurrentLocation();
-                })
-                .then((reason) => {
-                    console.info('Permission rejected');
-                });
-        },
-        onFailure: (e: { statusCode: Location.Android.SettingsStatusCodes }) => {
-            console.log('Location.checkSettings onFailure');
-            if (e.statusCode == Location.Android.SettingsStatusCodes.DENIED) {
-                console.log('SettingsStatusCodes.DENIED');
-            } else {
-                // go to settings via Application.call
-                console.log('SettingsStatusCodes.OTHER' + Location.Android.SettingsStatusCodes.OTHER);
-            }
-        }
-    });
-    if (System.OS === 'iOS') {
-        this.getCurrentLocation();
-    } else {
-        this.getCurrentLocation();
-
-    }
 }
 
 /**
@@ -137,16 +151,36 @@ function onShow(this: Page1, superOnShow: () => void) {
  */
 function onLoad(this: Page1, superOnLoad: () => void) {
     superOnLoad();
-    //@ts-ignore 
-    // this.myImage = Image.createFromFile("assets://weather/sunny.png")
-    // this.myImageView = new ImageView({
-    //     image: this.myImage
-    // }) as StyleContextComponentType<ImageView>;;
-    // this.addChild(this.myImageView, "myImageView", ".sf-imageView", {
-    //     left: 0,
-    //     width: 300,
-    //     height: 400
-    // });
+    if (this.routeData && this.routeData.city) {
+        this.getWeather(this.routeData.city.name);
+    } else {
+        Location.android.checkSettings({
+            onSuccess: () => {
+                PermissionUtil.getPermission({ androidPermission: Application.Android.Permissions.ACCESS_FINE_LOCATION, permissionText: 'Please go to the settings and grant permission' })
+                    .then(() => {
+                        this.getCurrentLocation();
+                    })
+                    .then((reason) => {
+                        console.info('Permission rejected');
+                    });
+            },
+            onFailure: (e: { statusCode: Location.Android.SettingsStatusCodes }) => {
+                console.log('Location.checkSettings onFailure');
+                if (e.statusCode == Location.Android.SettingsStatusCodes.DENIED) {
+                    console.log('SettingsStatusCodes.DENIED');
+                } else {
+                    // go to settings via Application.call
+                    console.log('SettingsStatusCodes.OTHER' + Location.Android.SettingsStatusCodes.OTHER);
+                }
+            }
+        });
+        if (System.OS === 'iOS') {
+            this.getCurrentLocation();
+        } else {
+            this.getCurrentLocation();
+
+        }
+    }
 
     this.headerBar.leftItemEnabled = false;
     this.headerBar.titleLayout = new PageTitleLayout();
@@ -154,4 +188,6 @@ function onLoad(this: Page1, superOnLoad: () => void) {
     if (System.OS === 'Android') {
         this.headerBar.title = '';
     }
+
+
 }

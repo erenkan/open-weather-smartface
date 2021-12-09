@@ -1,1 +1,8 @@
-{}
+{
+	".sf": {
+		"&-gridViewItem": {
+			"height": null,
+			"width": null
+		}
+	}
+}

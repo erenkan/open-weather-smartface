@@ -23,8 +23,8 @@
 					"positionType": "RELATIVE"
 				},
 				"height": 227,
-				"left": 102.77777777777779,
-				"top": 88.88888888888889
+				"left": "23.47",
+				"top": "35.71"
 			}
 		},
 		{
@@ -54,7 +54,8 @@
 				"children": [],
 				"name": "lblTitle",
 				"parent": "aea8-55c1-833e-4baa",
-				"text": "Grid Title Here"
+				"text": "Grid Title Here",
+				"usePageVariable": true
 			},
 			"source": {
 				"page": "__library__"
@@ -62,7 +63,8 @@
 			"type": "Label",
 			"userProps": {
 				"autoHeight": 20.652173913043477,
-				"text": "Grid Title Here"
+				"text": "Grid Title Here",
+				"usePageVariable": true
 			}
 		},
 		{
@@ -73,7 +75,8 @@
 				"children": [],
 				"name": "lblSubtitle",
 				"parent": "aea8-55c1-833e-4baa",
-				"text": "Grid subtitle here"
+				"text": "Grid subtitle here",
+				"usePageVariable": true
 			},
 			"source": {
 				"page": "__library__"
@@ -81,7 +84,8 @@
 			"type": "Label",
 			"userProps": {
 				"autoHeight": 18.478260869565215,
-				"text": "Grid subtitle here"
+				"text": "Grid subtitle here",
+				"usePageVariable": true
 			}
 		}
 	]

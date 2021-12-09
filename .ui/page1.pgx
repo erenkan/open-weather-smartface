@@ -11,7 +11,8 @@
 					"4093-2d86-679b-cbe1",
 					"452d-ad29-983b-7b10",
 					"4495-e916-bb7a-955f",
-					"8e4c-1828-358d-42c8"
+					"8e4c-1828-358d-42c8",
+					"a8ce-7da5-f250-5964"
 				],
 				"isRemovable": true,
 				"name": "page1",
@@ -472,6 +473,72 @@
 				},
 				"testId": "wZgOt8P8-",
 				"usePageVariable": true
+			}
+		},
+		{
+			"className": ".sf-gridView",
+			"id": "a8ce-7da5-f250-5964",
+			"props": {
+				"children": [
+					"7bd0-a2a4-df10-d8a3"
+				],
+				"name": "gridView1",
+				"parent": "e891b86d",
+				"usePageVariable": true
+			},
+			"type": "GridView",
+			"userProps": {
+				"flexProps": {
+					"alignSelf": "AUTO",
+					"flexGrow": 1
+				},
+				"height": null,
+				"layoutManager": {
+					"spanCount": 1,
+					"scrollDirection": "HORIZONTAL"
+				},
+				"left": 0,
+				"marginBottom": null,
+				"marginTop": null,
+				"testId": "TwCLmCAaC",
+				"top": 0,
+				"usePageVariable": true,
+				"width": null
+			}
+		},
+		{
+			"className": ".sf-gridViewItem",
+			"hiddenComponent": false,
+			"id": "7bd0-a2a4-df10-d8a3",
+			"props": {
+				"children": [],
+				"name": "sliderItem",
+				"parent": "a8ce-7da5-f250-5964"
+			},
+			"source": {
+				"page": "__library__",
+				"type": "sliderItem",
+				"id": "46ab-366f-65e8-346b"
+			},
+			"type": "GridViewItem",
+			"userProps": {
+				"backgroundColor": "rgba( 155, 155, 155, 1 )",
+				"borderRadius": 20,
+				"flex": {
+					"flexGrow": 1,
+					"positionType": 0
+				},
+				"flexProps": {
+					"positionType": "RELATIVE",
+					"alignItems": "STRETCH"
+				},
+				"height": 300,
+				"paddingBottom": 30,
+				"paddingLeft": 30,
+				"paddingRight": 30,
+				"paddingTop": 30,
+				"testId": "MyOwp_WNX",
+				"width": 400
 			}
 		}
 	]

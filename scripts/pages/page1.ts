@@ -7,11 +7,12 @@ import Location from '@smartface/native/device/location';
 import PermissionUtil from '@smartface/extension-utils/lib/permission';
 import { getWeatherByCityName, getWeatherByLocation } from '../api/weatherRepository';
 import { getLocation } from '@smartface/extension-utils/lib/location';
-import Label from '@smartface/native/ui/label';
 import View from '@smartface/native/ui/view';
 import Color from '@smartface/native/ui/color';
-import cities from 'utils/cities';
-import CitiesListViewItem from 'generated/my-components/CitiesListViewItem';
+import SliderItem from 'components/SliderItem'
+
+const sliderItems = [{ title: '15 min ago', subTitle: 'Its raining' }, { title: '20 min ago', subTitle: 'Rain clouds incoming' }, { title: '30 min ago', subTitle: 'Its sunny here, be sure wear your hat' }];
+
 export default class Page1 extends Page1Design {
     router: any;
     routeData: any;
@@ -134,7 +135,27 @@ export default class Page1 extends Page1Design {
                 break;
         }
     }
+    initWeatherAlerts() {
+        try {
+            this.gridView1.itemCount = sliderItems.length;
+            this.gridView1.scrollBarEnabled = false;
+            this.gridView1.onItemBind = (GridViewItem: SliderItem, index: number) => {
+                console.log('bind here',sliderItems)
+                
+                GridViewItem.backgroundColor = Color.createGradient({
+                    startColor: Color.create('#70f3e9'),
+                    endColor: Color.create('#429f98'),
+                    direction: Color.GradientDirection.VERTICAL
+                })
+                GridViewItem.sliderItemLabel.text = sliderItems[index].title;
+                GridViewItem.sliderItemSubLabel.text = sliderItems[index].subTitle;
+            }
+        } catch (error) {
+            console.log('error', error)
+        }
+    }
 }
+
 
 /**
  * @event onShow
@@ -143,6 +164,7 @@ export default class Page1 extends Page1Design {
 function onShow(this: Page1, superOnShow: () => void) {
     superOnShow();
     this.headerBar.titleLayout.applyLayout();
+
 }
 
 /**
@@ -151,6 +173,7 @@ function onShow(this: Page1, superOnShow: () => void) {
  */
 function onLoad(this: Page1, superOnLoad: () => void) {
     superOnLoad();
+    this.initWeatherAlerts();
     if (this.routeData && this.routeData.city) {
         this.getWeather(this.routeData.city.name);
     } else {
@@ -188,6 +211,5 @@ function onLoad(this: Page1, superOnLoad: () => void) {
     if (System.OS === 'Android') {
         this.headerBar.title = '';
     }
-
-
 }
+

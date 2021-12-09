@@ -7,7 +7,6 @@ import componentContextPatch from '@smartface/contx/lib/smartface/componentConte
 import Color from '@smartface/native/ui/color';
 import System from '@smartface/native/device/system';
 import { getWeatherOneCall } from 'api/weatherRepository';
-import GridViewItem1 from 'generated/my-components/GridViewItem1';
 import ListViewItem1 from 'generated/my-components/ListViewItem1';
 import View from '@smartface/native/ui/view';
 import moment from 'moment'

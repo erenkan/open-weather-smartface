@@ -1,0 +1,96 @@
+{
+	"components": [
+		{
+			"className": ".sf-gridViewItem",
+			"id": "46ab-366f-65e8-346b",
+			"props": {
+				"children": [
+					"4d1b-df00-2b24-52e8",
+					"cbba-be67-c147-ece1"
+				],
+				"name": "sliderItem",
+				"parent": "57f4-201f-4bfc-5fc6"
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "GridViewItem",
+			"userProps": {
+				"backgroundColor": "rgba( 255, 255, 255, 0 )",
+				"borderRadius": 20,
+				"height": 100,
+				"left": "6.12",
+				"testId": "MyOwp_WNX",
+				"top": "258.16",
+				"width": null
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "4d1b-df00-2b24-52e8",
+			"props": {
+				"children": [],
+				"name": "sliderItemLabel",
+				"parent": "46ab-366f-65e8-346b",
+				"text": "title",
+				"usePageVariable": true
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "Label",
+			"userProps": {
+				"flexProps": {
+					"flexGrow": 0.5
+				},
+				"font": {
+					"size": 17,
+					"bold": true,
+					"italic": false,
+					"family": "SFProText",
+					"style": "Semibold"
+				},
+				"height": null,
+				"testId": "b6PFf66fh",
+				"text": "title",
+				"textColor": "rgba( 0, 0, 0, 1 )",
+				"usePageVariable": true
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "cbba-be67-c147-ece1",
+			"props": {
+				"children": [],
+				"name": "sliderItemSubLabel",
+				"parent": "46ab-366f-65e8-346b",
+				"text": "sub",
+				"usePageVariable": true
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "Label",
+			"userProps": {
+				"flexProps": {
+					"flexGrow": 0.3
+				},
+				"font": {
+					"size": 17,
+					"bold": false,
+					"italic": false,
+					"family": "SFProText",
+					"style": "Medium"
+				},
+				"height": null,
+				"ios": {
+					"shadowColor": "rgba( 0, 0, 0, 1 )"
+				},
+				"testId": "MuQYaxSan",
+				"text": "sub",
+				"textColor": "rgba( 74, 74, 74, 1 )",
+				"usePageVariable": true
+			}
+		}
+	]
+}

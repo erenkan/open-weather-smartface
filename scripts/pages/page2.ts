@@ -30,10 +30,8 @@ export default class Page2 extends Page2Design {
     })
     }
     async getWeatherDetails() {
-        console.log('STORE HERE',store.getState().city)
-            this.lblCity.text = this.routeData.coords.city;
+            this.lblCity.text = store.getState().city.name;
             const response = await getWeatherOneCall(store.getState().city.latitude, store.getState().city.longitude);
-            console.log('one call api2', response)
             if (response) {
                 try {
                     this.listView1.rowHeight = 80;

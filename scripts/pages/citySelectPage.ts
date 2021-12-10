@@ -1,9 +1,11 @@
 import CitiesListViewItem from 'generated/my-components/CitiesListViewItem';
 import CitySelectPageDesign from 'generated/pages/citySelectPage';
 import cities from 'utils/cities';
+import store from '../store/index'
 
 export default class CitySelectPage extends CitySelectPageDesign {
     router: any;
+    routeData: any;
 	constructor() {
 		super();
 		// Overrides super.onShow method
@@ -45,9 +47,16 @@ function onShow(this: CitySelectPage, superOnShow: () => void) {
     this.listView1.onRowSelected = (listViewItem: CitiesListViewItem, index: number) => {
         let selectedCity = cities.find(city => city.name === listViewItem.lblListCityName.text)
         console.log('selectedCIty', selectedCity)
-        this.router.push('/pages/page1', {
-            city: selectedCity
-        })
+        store.dispatch({
+            type: "SET_CITY",
+            payload: {
+              city:{
+                  name: selectedCity.name
+              }
+            }
+          });
+          this.router.goBack();
+
         
     }
 }
@@ -59,4 +68,5 @@ function onShow(this: CitySelectPage, superOnShow: () => void) {
  */
 function onLoad(this: CitySelectPage, superOnLoad: () => void) {
 	superOnLoad();
+
 }

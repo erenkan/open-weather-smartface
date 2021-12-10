@@ -1,0 +1,8 @@
+{
+	".slider": {
+		"&-medium": {
+			"paddingRight": 10,
+			"paddingLeft": 20
+		}
+	}
+}

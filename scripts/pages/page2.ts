@@ -10,6 +10,7 @@ import { getWeatherOneCall } from 'api/weatherRepository';
 import ListViewItem1 from 'generated/my-components/ListViewItem1';
 import View from '@smartface/native/ui/view';
 import moment from 'moment'
+import store from '../store/index'
 export default class Page2 extends Page2Design {
     router: any;
     routeData: any;
@@ -29,7 +30,8 @@ export default class Page2 extends Page2Design {
     })
     }
     async getWeatherDetails() {
-        if (this.routeData.coords) {
+        console.log('STATE',store.getState())
+        if (store.getState().city.name && store.getState().city.name !== '') {
             this.lblCity.text = this.routeData.coords.city;
             const response = await getWeatherOneCall(this.routeData.coords.latitude, this.routeData.coords.longitude);
             console.log('one call api2', response)

@@ -8,6 +8,7 @@
     "@smartface/router": "2.0.0",
     "@smartface/styler": "^2.0.0",
     "moment": "^2.29.1",
+    "redux": "^4.1.2",
     "source-map": "0.6.1"
   }
 }

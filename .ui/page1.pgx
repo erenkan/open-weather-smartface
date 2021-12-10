@@ -507,7 +507,7 @@
 			}
 		},
 		{
-			"className": ".sf-gridViewItem",
+			"className": ".sf-gridViewItem .sliderItem",
 			"hiddenComponent": false,
 			"id": "7bd0-a2a4-df10-d8a3",
 			"props": {
@@ -533,10 +533,6 @@
 					"alignItems": "STRETCH"
 				},
 				"height": 300,
-				"paddingBottom": 30,
-				"paddingLeft": 30,
-				"paddingRight": 30,
-				"paddingTop": 30,
 				"testId": "MyOwp_WNX",
 				"width": 400
 			}

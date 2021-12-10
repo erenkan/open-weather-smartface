@@ -5,8 +5,7 @@
 			"id": "46ab-366f-65e8-346b",
 			"props": {
 				"children": [
-					"4d1b-df00-2b24-52e8",
-					"cbba-be67-c147-ece1"
+					"eb4f-1ecd-dcb5-c2b6"
 				],
 				"name": "sliderItem",
 				"parent": "57f4-201f-4bfc-5fc6"
@@ -26,45 +25,36 @@
 			}
 		},
 		{
-			"className": ".sf-label",
-			"id": "4d1b-df00-2b24-52e8",
+			"className": ".sf-flexLayout",
+			"id": "eb4f-1ecd-dcb5-c2b6",
 			"props": {
-				"children": [],
-				"name": "sliderItemLabel",
+				"children": [
+					"7535-e861-3ac0-9f23",
+					"3e1a-58ff-34f3-4b6d"
+				],
+				"name": "flexLayout1",
 				"parent": "46ab-366f-65e8-346b",
-				"text": "title",
 				"usePageVariable": true
 			},
 			"source": {
 				"page": "__library__"
 			},
-			"type": "Label",
+			"type": "FlexLayout",
 			"userProps": {
-				"flexProps": {
-					"flexGrow": 0.5
-				},
-				"font": {
-					"size": 17,
-					"bold": true,
-					"italic": false,
-					"family": "SFProText",
-					"style": "Semibold"
-				},
-				"height": null,
-				"testId": "b6PFf66fh",
-				"text": "title",
-				"textColor": "rgba( 0, 0, 0, 1 )",
+				"marginBottom": null,
+				"marginTop": null,
+				"testId": "jLDhrVk18",
 				"usePageVariable": true
 			}
 		},
 		{
 			"className": ".sf-label",
-			"id": "cbba-be67-c147-ece1",
+			"id": "7535-e861-3ac0-9f23",
 			"props": {
 				"children": [],
-				"name": "sliderItemSubLabel",
-				"parent": "46ab-366f-65e8-346b",
-				"text": "sub",
+				"name": "lblSliderTitle",
+				"parent": "eb4f-1ecd-dcb5-c2b6",
+				"text": "lblTitle",
 				"usePageVariable": true
 			},
 			"source": {
@@ -72,23 +62,28 @@
 			},
 			"type": "Label",
 			"userProps": {
-				"flexProps": {
-					"flexGrow": 0.3
-				},
-				"font": {
-					"size": 17,
-					"bold": false,
-					"italic": false,
-					"family": "SFProText",
-					"style": "Medium"
-				},
-				"height": null,
-				"ios": {
-					"shadowColor": "rgba( 0, 0, 0, 1 )"
-				},
-				"testId": "MuQYaxSan",
-				"text": "sub",
-				"textColor": "rgba( 74, 74, 74, 1 )",
+				"testId": "j0MMF1_aa6",
+				"text": "lblTitle",
+				"usePageVariable": true
+			}
+		},
+		{
+			"className": ".sf-label",
+			"id": "3e1a-58ff-34f3-4b6d",
+			"props": {
+				"children": [],
+				"name": "lblSliderSubTitle",
+				"parent": "eb4f-1ecd-dcb5-c2b6",
+				"text": "lblSubtitle",
+				"usePageVariable": true
+			},
+			"source": {
+				"page": "__library__"
+			},
+			"type": "Label",
+			"userProps": {
+				"testId": "7LJ0QjaaS",
+				"text": "lblSubtitle",
 				"usePageVariable": true
 			}
 		}

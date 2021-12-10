@@ -10,9 +10,9 @@ import { getLocation } from '@smartface/extension-utils/lib/location';
 import View from '@smartface/native/ui/view';
 import Color from '@smartface/native/ui/color';
 import SliderItem from 'components/SliderItem'
+import store from '../store/index'
 
 const sliderItems = [{ title: '15 min ago', subTitle: 'Its raining' }, { title: '20 min ago', subTitle: 'Rain clouds incoming' }, { title: '30 min ago', subTitle: 'Its sunny here, be sure wear your hat' }];
-
 export default class Page1 extends Page1Design {
     router: any;
     routeData: any;
@@ -56,6 +56,14 @@ export default class Page1 extends Page1Design {
                 url: `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`,
             })
             this.labelCity.text = response.name;
+            store.dispatch({
+                type: "SET_CITY",
+                payload: {
+                  city:{
+                      name: response.name
+                  }
+                }
+              });
             this.labelTemp.text = Math.round(response.main.temp).toString();
             this.changeBackgroudByWeather(response.weather[0].main)
             this.toggleIndicatorVisibility(false);
@@ -84,6 +92,14 @@ export default class Page1 extends Page1Design {
                     url: `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`,
                 })
                 this.labelCity.text = response.name;
+                store.dispatch({
+                    type: "SET_CITY",
+                    payload: {
+                      city:{
+                          name: response.name
+                      }
+                    }
+                  });
                 this.labelTemp.text = Math.round(response.main.temp).toString();
                 this.changeBackgroudByWeather(response.weather[0].main)
                 this.toggleIndicatorVisibility(false);
@@ -147,8 +163,8 @@ export default class Page1 extends Page1Design {
                     endColor: Color.create('#429f98'),
                     direction: Color.GradientDirection.VERTICAL
                 })
-                GridViewItem.sliderItemLabel.text = sliderItems[index].title;
-                GridViewItem.sliderItemSubLabel.text = sliderItems[index].subTitle;
+                GridViewItem.lblSliderTitle.text = sliderItems[index].title;
+                GridViewItem.lblSliderSubTitle.text = sliderItems[index].subTitle;
             }
         } catch (error) {
             console.log('error', error)
@@ -164,6 +180,9 @@ export default class Page1 extends Page1Design {
 function onShow(this: Page1, superOnShow: () => void) {
     superOnShow();
     this.headerBar.titleLayout.applyLayout();
+    if (store.getState().city.name && store.getState().city.name !== '') {
+        this.getWeather(store.getState().city.name);
+    }
 
 }
 
@@ -174,8 +193,8 @@ function onShow(this: Page1, superOnShow: () => void) {
 function onLoad(this: Page1, superOnLoad: () => void) {
     superOnLoad();
     this.initWeatherAlerts();
-    if (this.routeData && this.routeData.city) {
-        this.getWeather(this.routeData.city.name);
+    if (store.getState().city.name && store.getState().city.name !== '') {
+        this.getWeather(store.getState().city.name);
     } else {
         Location.android.checkSettings({
             onSuccess: () => {

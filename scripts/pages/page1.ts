@@ -28,13 +28,7 @@ export default class Page1 extends Page1Design {
         // Overrides super.onLoad method
         this.onLoad = onLoad.bind(this, this.onLoad.bind(this));
         this.labelCalendarIcon.on(View.Events.Touch, () => {
-            this.router.push('/pages/page2', {
-                coords: {
-                    latitude: this.latitude,
-                    longitude: this.longitude,
-                    city: this.city
-                }
-            });
+            this.router.push('/pages/page2')
         })
         this.labelLocationIcon.on(View.Events.Touch, () => {
             this.router.push('/pages/citySelectPage');
@@ -60,7 +54,9 @@ export default class Page1 extends Page1Design {
                 type: "SET_CITY",
                 payload: {
                   city:{
-                      name: response.name
+                      name: response.name,
+                      latitude:response.coord.lat,
+                      longitude: response.coord.lon,
                   }
                 }
               });
@@ -96,7 +92,9 @@ export default class Page1 extends Page1Design {
                     type: "SET_CITY",
                     payload: {
                       city:{
-                          name: response.name
+                          name: response.name,
+                          latitude:response.coord.lat,
+                          longitude: response.coord.lon,
                       }
                     }
                   });
@@ -159,8 +157,8 @@ export default class Page1 extends Page1Design {
                 console.log('bind here',sliderItems)
                 
                 GridViewItem.backgroundColor = Color.createGradient({
-                    startColor: Color.create('#70f3e9'),
-                    endColor: Color.create('#429f98'),
+                    startColor: Color.create('#b0e3f1'),
+                    endColor: Color.TRANSPARENT,
                     direction: Color.GradientDirection.VERTICAL
                 })
                 GridViewItem.lblSliderTitle.text = sliderItems[index].title;

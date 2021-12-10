@@ -30,10 +30,9 @@ export default class Page2 extends Page2Design {
     })
     }
     async getWeatherDetails() {
-        console.log('STATE',store.getState())
-        if (store.getState().city.name && store.getState().city.name !== '') {
+        console.log('STORE HERE',store.getState().city)
             this.lblCity.text = this.routeData.coords.city;
-            const response = await getWeatherOneCall(this.routeData.coords.latitude, this.routeData.coords.longitude);
+            const response = await getWeatherOneCall(store.getState().city.latitude, store.getState().city.longitude);
             console.log('one call api2', response)
             if (response) {
                 try {
@@ -55,7 +54,7 @@ export default class Page2 extends Page2Design {
 
             }
 
-        }
+      
     }
 }
 
@@ -67,6 +66,9 @@ function onShow(this: Page2, superOnShow: () => void) {
     superOnShow();
     this.headerBar.titleLayout.applyLayout();
     this.routeData && console.info(this.routeData.coords);
+    if (store.getState().city.name && store.getState().city.name !== '') {
+        this.getWeatherDetails()
+    }
 }
 
 /**
@@ -75,7 +77,6 @@ function onShow(this: Page2, superOnShow: () => void) {
  */
 function onLoad(this: Page2, superOnLoad: () => void) {
     superOnLoad();
-    this.getWeatherDetails();
     let headerBar;
     this.headerBar.titleLayout = new PageTitleLayout();
     componentContextPatch(this.headerBar.titleLayout, 'titleLayout');

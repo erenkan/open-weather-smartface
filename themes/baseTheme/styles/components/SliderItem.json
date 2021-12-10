@@ -1,6 +1,6 @@
 {
 	".sliderItem": {
-		"paddingLeft": 10,
-		"paddingRight": 10
+		"paddingLeft": 20,
+		"paddingRight": 20
 	}
 }

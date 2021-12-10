@@ -1,7 +1,7 @@
 {
 	"components": [
 		{
-			"className": ".sf-gridViewItem",
+			"className": ".sf-gridViewItem .sliderItem",
 			"id": "46ab-366f-65e8-346b",
 			"props": {
 				"children": [
@@ -62,8 +62,16 @@
 			},
 			"type": "Label",
 			"userProps": {
+				"font": {
+					"size": 15,
+					"bold": true,
+					"italic": false,
+					"family": "SFProText",
+					"style": "Semibold"
+				},
 				"testId": "j0MMF1_aa6",
 				"text": "lblTitle",
+				"textColor": "rgba( 0, 0, 0, 1 )",
 				"usePageVariable": true
 			}
 		},
@@ -82,8 +90,16 @@
 			},
 			"type": "Label",
 			"userProps": {
+				"font": {
+					"size": 13,
+					"bold": true,
+					"italic": false,
+					"family": "SFProText",
+					"style": "Semibold"
+				},
 				"testId": "7LJ0QjaaS",
 				"text": "lblSubtitle",
+				"textColor": "rgba( 155, 155, 155, 1 )",
 				"usePageVariable": true
 			}
 		}

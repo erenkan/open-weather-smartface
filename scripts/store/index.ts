@@ -3,6 +3,9 @@ import { createStore } from "redux";
 const initialState = {
     city: {
         name: '',
+        latitude:'',
+        longitude:''
+
     }
 };
 
